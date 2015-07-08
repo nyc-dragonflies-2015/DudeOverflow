@@ -3,7 +3,7 @@ Stack overflow clone, overflowing with dudes...
 
 ## Trello
 
-[Dude Overflow Trello](https://github.com/nyc-dragonflies-2015/DudeOverflow.git)
+[Dude Overflow Trello](https://trello.com/b/Zyaoi14f/staroverflow)
 
 
 ## Team
