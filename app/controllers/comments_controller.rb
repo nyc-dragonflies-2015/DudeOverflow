@@ -4,4 +4,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+
+
 end
