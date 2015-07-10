@@ -1,5 +1,15 @@
-<h1>Hi Joseph</h1>
-<% if session[:user_id] %>
-  <%= User.find_by(id: session[:user_id]).username %>
-  <%= link_to 'Logout', logout_path, method: 'delete' %>
-<% end %>
+<html>
+  <body>
+    <div id="main-container" class="container">
+      <div class="row">
+        <div id="sidebar" class="col-xs-3">
+          <p> Dude Overflow</p>
+        </div>
+        <div id="content" class="col-xs-9">
+          <!--  main content -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
