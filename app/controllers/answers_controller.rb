@@ -11,6 +11,10 @@ class AnswersController < ApplicationController
     redirect_to question
   end
 
+  def show
+    @question = Question.find(params[:question_id])
+  end
+
 
 
   private
