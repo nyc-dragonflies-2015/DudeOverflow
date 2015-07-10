@@ -33,6 +33,13 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    answer = Answer.find(params[:id])
+    verify_answer_ownership
+    answer.destroy
+    redirect_to question_path(answer.question_id)
+  end
+
   private
 
   def answer_params
