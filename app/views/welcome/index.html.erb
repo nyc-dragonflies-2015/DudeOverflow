@@ -1,5 +1,77 @@
-<h1>Hi Joseph</h1>
-<% if session[:user_id] %>
-  <%= User.find_by(id: session[:user_id]).username %>
-  <%= link_to 'Logout', logout_path, method: 'delete' %>
-<% end %>
+<html>
+  <body>
+    <div id="main-container" class="container-fluid">
+      <div class="row">
+        <div id="sidebar" class="col-xs-6">
+          <p id= "logo"> Dude Overflow</p>
+        </div>
+        <div id="blanktopbar" class= "col-xs-3">
+        </div>
+        <div id="signup" class="col-xs-1">
+          <p> sign up </p>
+        </div>
+        <div id="login" class="col-xs-1">
+          <p> login </p>
+        </div>
+        <div id="profile" class="col-xs-1">
+          <p> profile </p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="votes-holder" class="col-xs-1">
+          <div class="row">
+            <div id="votecountlabel" class= "col-xs-1">
+              <p> 0 </p>
+            </div>
+          </div>
+          <div class="row">
+            <div id="votelabel" class= "col-xs-1">
+              <p> votes </p>
+            </div>
+          </div>
+        </div>
+        <div id="answers-holder" class="col-xs-1">
+          <div class="row">
+            <div id="answercountlabel" class= "col-xs-1">
+              <p> 0 </p>
+            </div>
+          </div>
+          <div class="row">
+            <div id="answerlabel" class= "col-xs-1">
+              <p> answer </p>
+            </div>
+          </div>
+        </div>
+        <div id="views-holder" class="col-xs-1">
+          <div class="row">
+            <div id="viewscountlabel" class= "col-xs-1">
+              <p> 0 </p>
+            </div>
+          </div>
+          <div class="row">
+            <div id="viewslabel" class= "col-xs-1">
+              <p> views </p>
+            </div>
+          </div>
+        </div>
+        <div id="question-holder" class="col-xs-9">
+          <div class="row">
+            <div id="question-title" class= "col-xs-12">
+              <p> hey this is the first question for dude overflow omg this is amazing </p>
+            </div>
+          </div>
+          <div class="row">
+            <div id="tags-list" class= "col-xs-6">
+              <p> tags </p>
+            </div>
+            <div id="authorlabel" class= "col-xs-6">
+              <p> author </p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
