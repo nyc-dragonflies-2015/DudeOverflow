@@ -13,10 +13,35 @@ class QuestionController < ApplicationController
   end
 
   def create
-    @question = current_user.questions.create(params[:question])
+    @question = current_user.questions.create(question_params)
+    if @question.valid?
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to root_url
+  end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    if @question.update_attributes(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:title, :body)
   end
 end
