@@ -21,7 +21,17 @@ class AnswersController < ApplicationController
     verify_answer_ownership
   end
 
-
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    verify_answer_ownership
+    if @answer.update_attributes(answers_params)
+      redirect_to question_path(@answer.question_id)
+    else
+      flash[:alert] = "#{@question.errors.full_messages.join("--")}"
+      render :edit
+    end
+  end
 
   private
 
