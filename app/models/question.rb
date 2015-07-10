@@ -7,4 +7,15 @@ class Question < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
 
+  def vote_count
+    self.upvotes - self.downvotes
+  end
+
+  def upvotes
+    self.votes.where(count: 1).count
+  end
+
+  def downvotes
+    self.votes.where(count: -1).count
+  end
 end
