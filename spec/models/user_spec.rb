@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  let(:db_array) { [] }
+  let(:db_user_array) { [] }
   let(:user) { User.create(username: "Mike", password: "123")}
   let(:valid_username) {User.new(username: "Mike", password: "123")}
   let(:invalid_username) {User.new(username: nil, password: "123")}
@@ -25,18 +25,18 @@ describe User do
   end
 
   it "should add a User to the database" do
-    db_array << user
-    expect(db_array.length).to eq(1)
+    db_user_array << user
+    expect(db_user_array.length).to eq(1)
   end
 
   it "should remove a User from the database" do
     user.destroy
-    expect(db_array.length).to eq(0)
+    expect(db_user_array.length).to eq(0)
   end
 
   it "should only allow unique usernames" do
-    db_array << user
+    db_user_array << user
     user2 = User.create(username: "Mike", password: "321")
-    expect(db_array.length).to eq(1)
+    expect(db_user_array.length).to eq(1)
   end
 end
