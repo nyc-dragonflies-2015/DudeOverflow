@@ -12,10 +12,10 @@ class Question < ActiveRecord::Base
   end
 
   def upvotes
-    self.votes.where(count: 1).count
+    self.votes.where(upvote: true).count
   end
 
   def downvotes
-    self.votes.where(count: -1).count
+    self.votes.where(upvote: false).count
   end
 end
