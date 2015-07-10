@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
       @comment.commentable_id = @answer.id
     end
     @comment.save
-    redirect_to @question
+    if @comment.commentable_type == "Question"
+      redirect_to question_path(@question.id)
+    else
+      redirect_to question_path(@answer.question.id)
+    end
   end
 
   private

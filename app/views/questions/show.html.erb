@@ -1,5 +1,23 @@
-<%= @question.title %>
+<%= @question.title %><br>
 <%= @question.body %>
 
 
 <%= render 'comments/question_comment', question: @question %>
+<h2>Question Comments</h2>
+<% if @question.comments %>
+  <% @question.comments.each do |c| %>
+    <%= c.body %><br>
+  <% end %>
+<% end %>
+
+<% if @question.answers %>
+  <% @question.answers.each do |a| %>
+    <%= render 'answers/show', answer: a %>
+    <h2>Answer Comments</h2>
+    <% if a.comments %>
+      <% a.comments.each do |c| %>
+        <%= c.body %><br>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
