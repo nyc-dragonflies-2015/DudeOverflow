@@ -4,11 +4,15 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @commentable.comments.create(params[:comment])
-    if @comment.valid?
-      render text: "great"
-    else
-      flash[:alert] = "#{@comment.errors.full_messages.join("==")}"
+    @comment = Comment.new(comment_params)
+    @comment.update_attributes(user_id: current_user.id)
+    if @comment.commentable_type == "Question"
+      @question = Question.find(@comment.commentable_id).id
+      @comment.commentable_id = @question.id
+    elsif @comment.commentable_type == "Answer"
+      @answer = Answer.find(@comment.commentable_id)
+      @comment.commentable_id = @answer.id
     end
+    @comment.save
   end
 end
