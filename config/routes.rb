@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy', as: 'logout'
   resources :users, only: [:new, :create]
-  resources :questions do
-    resources :answers
-  end
+  resources :questions
+  resources :answers
+  resources :comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
