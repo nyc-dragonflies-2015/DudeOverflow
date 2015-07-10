@@ -21,7 +21,7 @@ class QuestionController < ApplicationController
     end
   end
 
-  def destroy
+  def delete
     @question = Question.find(params[:id])
     @question.destroy
     redirect_to root_url
