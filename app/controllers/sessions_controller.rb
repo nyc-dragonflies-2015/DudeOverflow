@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: user_params[:email])
-    if @user.password == params[:password]
-      session[:user_id] = @user.id
+    user = User.find_by(username: user_params[:username])
+    if user && user.authenticate(user_params[:password])
+      session[:user_id] = user.id
       redirect_to root_path
     else
       flash[:notice] = "Invalid Username or Password"
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    redirect_to root_path
   end
 
   private
