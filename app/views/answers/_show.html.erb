@@ -1,5 +1,5 @@
 <% if logged_in? %>
   <%= render partial: "votes/show", locals: {answer: answer, voteable_type: "Answer", voteable_id: answer.id, vote_count: answer.vote_count } %>
 <% end %>
-<h3><%= answer.body %></h3>
+<h4><%= answer.body %></h4>
 <%= render 'comments/answer_comment', answer: answer %>
