@@ -1,11 +1,15 @@
+<%= link_to "Home", root_path %>
 <% if logged_in? %>
-  <%= render partial: "votes/show", locals: {question: @question, voteable_type: "Question", voteable_id: @question.id, vote_count: @question.vote_count } %>
+  <%= render partial: "votes/question_vote", locals: {question: @question, voteable_type: "Question", voteable_id: @question.id, vote_count: @question.vote_count } %>
+<% else %>
+  <h3><%= @question.vote_count %></h3>
 <% end %>
 <%= @question.title %><br>
 <%= @question.body %>
 
-
-<%= render 'comments/question_comment', question: @question %>
+<% if logged_in? %>
+  <%= render 'comments/question_comment', question: @question %>
+<% end %>
 
 <h2 id="question-comments-header">Question Comments</h2>
 
@@ -15,8 +19,9 @@
   <% end %>
 <% end %>
 
-
-<%= render 'answers/form', answer: @answer %>
+<% if logged_in? %>
+  <%= render 'answers/form', answer: @answer %>
+<% end %>
 
 <% if @question.answers %>
   <% @question.answers.each do |a| %>
