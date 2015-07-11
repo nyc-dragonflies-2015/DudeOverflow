@@ -1,3 +1,9 @@
 <% @tags.each do |tag| %>
-  <%= tag.name %>
+  <div class="tag-name">
+    <%= tag.name %>
+  </div>
+
+  <div class="tag-description">
+    <%= tag.description %>
+  </div>
 <% end %>
