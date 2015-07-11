@@ -12,6 +12,10 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    unless current_user
+      flash[:notice] = "You must be logged in to ask a question."
+      redirect_to root_url
+    end
     @question = Question.new
   end
 
