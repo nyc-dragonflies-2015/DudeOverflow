@@ -14,7 +14,7 @@
           <p> <%= link_to 'Login', login_path %> </p>
         </div>
         <div id="profile" class="col-xs-1">
-          <p> Profile</p>
+          <p> <%= link_to 'Profile', current_user %></p>
         </div>
       </div>
       <% Question.all.each do |question| %>
@@ -22,7 +22,7 @@
           <div id="votes-holder" class="col-xs-1">
             <div class="row">
               <div id="votecountlabel" class= "col-xs-1">
-                <p> 0 </p>
+                <p> <%= question.vote_count %> </p>
               </div>
             </div>
             <div class="row">
@@ -34,7 +34,7 @@
           <div id="answers-holder" class="col-xs-1">
             <div class="row">
               <div id="answercountlabel" class= "col-xs-1">
-                <p> 0 </p>
+                <p> <%= question.answers.count %> </p>
               </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
           <div id="question-holder" class="col-xs-9">
             <div class="row">
               <div id="question-title" class= "col-xs-12">
-                <p> <%= question.title %></p>
+                <p> <%= link_to question.title, question %></p>
               </div>
             </div>
             <div class="row">
@@ -66,7 +66,7 @@
                 <p> tags </p>
               </div>
               <div id="authorlabel" class= "col-xs-6">
-                <p> <%= question.user.username %> </p>
+                <p> <%= link_to question.user.username, question.user %> </p>
                 <p> author </p>
               </div>
             </div>
