@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20150711214947) do
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
-  create_table "question_tags", force: :cascade do |t|
-    t.integer  "question_id", null: false
-    t.integer  "tag_id",      null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string   "title",                  null: false
     t.text     "body",                   null: false
@@ -49,6 +42,13 @@ ActiveRecord::Schema.define(version: 20150711214947) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "view_count", default: 0, null: false
+  end
+
+  create_table "questions_tags", force: :cascade do |t|
+    t.integer  "question_id", null: false
+    t.integer  "tag_id",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tags", force: :cascade do |t|
