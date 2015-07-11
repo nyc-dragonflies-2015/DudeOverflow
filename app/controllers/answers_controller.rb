@@ -1,10 +1,10 @@
 class AnswersController < ApplicationController
 
   def create
-    question = Question.find(question_id: params[:question_id])
+    question = Question.find_by(id: answer_params[:question_id])
     @answer = Answer.new(answer_params)
     if @answer && @answer.save
-
+      @answer.question_id = question.id
     else
       flash[:alert] = "#{@answer.errors.full_messages.join("--")}"
     end
