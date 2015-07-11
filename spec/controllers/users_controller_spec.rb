@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe UsersController do
-  let(:db_array) { [] }
-  let(:user) {User.create(username: "mike", password: "123")}
   describe "GET new" do
 
     it "should return OK status" do
@@ -18,9 +16,9 @@ describe UsersController do
   describe "POST create" do
 
     it "should create a new user" do
+      user = User.create(username: "mike", password: "123")
       get :new
-      db_array << user
-      expect(db_array.length).to eq(1)
+      expect(User.count).to eq(1)
     end
   end
 end
