@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create', as: 'create_session'
 
   delete '/logout' => 'sessions#destroy', as: 'logout'
-  resources :users, only: [:new, :create]
+
+  post 'votes/upvote', to: 'votes#upvote'
+  post 'votes/downvote', to: 'votes#downvote'
+
+  resources :users, only: [:new, :create, :show]
   resources :questions
   resources :answers
   resources :comments
