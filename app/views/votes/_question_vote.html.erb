@@ -1,0 +1,17 @@
+<%= form_for :vote, url: '/votes/upvote', :html => {class: 'upvote', id: "upvote-id-" + question.id.to_s} do |f|  %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :voteable_type, value: voteable_type %>
+  <%= f.hidden_field :voteable_id, value: voteable_id %>
+  <%= f.hidden_field :upvote, value: true %>
+  <%= f.submit 'Upvote' %>
+<% end %>
+
+<h3><%= vote_count %></h3>
+
+<%= form_for :vote, url: '/votes/downvote', :html => {class: 'downvote', id: "downvote-id-" + question.id.to_s} do |f|  %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :voteable_type, value: voteable_type %>
+  <%= f.hidden_field :voteable_id, value: voteable_id %>
+  <%= f.hidden_field :upvote, value: false %>
+  <%= f.submit 'Downvote' %>
+<% end %>

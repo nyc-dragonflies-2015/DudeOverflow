@@ -5,10 +5,16 @@ class VotesController < ApplicationController
   end
 
   def upvote
-    existing_vote = vote_for_curr_user
-    if existing_vote && !existing_vote.upvote
-      existing_vote.destroy
-    elsif existing_vote && existing_vote.upvote
+    @existing_vote = vote_for_curr_user
+    if @existing_vote && !@existing_vote.upvote
+      # @existing_vote.update_attributes(upvote: true)
+      # if request.xhr?
+      #   render json: @existing_vote
+      # else
+      #   render :'welcome/index'
+      # end
+      @existing_vote.destroy
+    elsif @existing_vote && @existing_vote.upvote
     else
       Vote.create(vote_params)
     end
@@ -16,10 +22,15 @@ class VotesController < ApplicationController
   end
 
   def downvote
-    existing_vote = vote_for_curr_user
-    if existing_vote && existing_vote.upvote
-      existing_vote.destroy
-    elsif existing_vote && !existing_vote.upvote
+    @existing_vote = vote_for_curr_user
+    if @existing_vote && @existing_vote.upvote
+      # @existing_vote.update_attributes(upvote: false)
+      # if request.xhr?
+      #   render :downvote, layout: false
+      # else
+      # end
+      @existing_vote.destroy
+    elsif @existing_vote && !@existing_vote.upvote
     else
       Vote.create(vote_params)
     end
