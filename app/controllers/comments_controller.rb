@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment.save
     if @comment.commentable_type == "Question"
       if request.xhr?
-        render(partial: 'comments/question_comment', layout: false, comment: @comment)
+        render :create, layout: false
       else
         redirect_to question_path(@question.id)
       end
