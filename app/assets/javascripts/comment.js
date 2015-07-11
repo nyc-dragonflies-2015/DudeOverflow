@@ -1,3 +1,15 @@
 $(document).ready(function(){
-  $()
+  $('#question-comment-form').on('submit', function(event){
+  event.preventDefault();
+  console.log($(this));
+    $.ajax({
+      url: 'http://localhost:3000/comments',
+      method: 'POST',
+      data: $(this).serialize()
+    }).done(function(response){
+      console.log('great')
+    }).fail(function(error){
+      console.log('error')
+    });
+  });
 })
