@@ -6,14 +6,13 @@
 
 
 <%= render 'comments/question_comment', question: @question %>
-<h2>Question Comments</h2>
-<div id="question_comments"></div>
+
+<h2 id="question-comments-header">Question Comments</h2>
+
 <% if @question.comments %>
-  <ul id="comment-list">
   <% @question.comments.each do |c| %>
-    <li><%= c.body %></li>
+    <%= c.body %><br/>
   <% end %>
-  </ul>
 <% end %>
 
 <%= render 'answers/form', answer: @answer  %>
