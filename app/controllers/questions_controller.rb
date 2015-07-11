@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @question.view_count += 1
+    @question.save
     @comment = Comment.new
     @answer = Answer.new
     # @answers = Answer.where(question_id: @question.id)
