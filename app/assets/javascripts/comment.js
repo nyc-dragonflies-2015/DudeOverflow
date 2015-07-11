@@ -7,7 +7,8 @@ $(document).ready(function(){
       method: 'POST',
       data: $(this).serialize()
     }).done(function(response){
-      console.log('great')
+      console.log(response);
+      $('ul#comment-list').append(response);
     }).fail(function(error){
       console.log('error')
     });
