@@ -1,0 +1,7 @@
+<%= form_for @answer do |f| %>
+<%= f.label :body, 'Answer' %>
+<%= f.text_field :body %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :question_id, value: @question.id %>
+<%= f.submit 'Add Answer' %>
+<% end %>
