@@ -10,6 +10,10 @@
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% end %>
+  <% if logged_in? %>
+    <p> Logged in as: <%= link_to current_user.username, current_user %> </p>
+    <%= link_to 'Logout', logout_path, method: 'delete' %>
+  <% end %>
 
 <%= yield %>
 
