@@ -9,9 +9,11 @@
 <h2>Question Comments</h2>
 <div id="question_comments"></div>
 <% if @question.comments %>
+  <ul id="comment-list">
   <% @question.comments.each do |c| %>
-    <%= c.body %><br>
+    <li><%= c.body %></li>
   <% end %>
+  </ul>
 <% end %>
 
 <%= render 'answers/form', answer: @answer  %>
