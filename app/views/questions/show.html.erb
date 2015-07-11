@@ -6,19 +6,21 @@
 
 
 <%= render 'comments/question_comment', question: @question %>
-<h2>Question Comments</h2>
+
+<h2 id="question-comments-header">Question Comments</h2>
+
 <% if @question.comments %>
   <% @question.comments.each do |c| %>
-    <%= c.body %><br>
+    <%= c.body %><br/>
   <% end %>
 <% end %>
 
-<%= render 'answers/form', answer: @answer  %>
+
+<%= render 'answers/form', answer: @answer %>
 
 <% if @question.answers %>
   <% @question.answers.each do |a| %>
     <%= render 'answers/show', answer: a %>
-    <h2>Answer Comments</h2>
     <% if a.comments %>
       <% a.comments.each do |c| %>
         <%= c.body %><br>

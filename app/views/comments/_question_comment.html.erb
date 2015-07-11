@@ -1,6 +1,7 @@
-<%= form_for @comment, url: comments_path, method: :post do |f| %>
-  <%= f.text_field :body %>
-  <%= f.hidden_field :commentable_type, value: "Question" %>
-  <%= f.hidden_field :commentable_id, value: @question.id %>
-  <%= f.submit :"Submit Question Comment" %>
-<% end %>
+
+  <%= form_for @comment, url: comments_path, :html => {id: 'question-comment-form'}, method: :post do |f| %>
+    <%= f.text_field :body %>
+    <%= f.hidden_field :commentable_type, value: "Question" %>
+    <%= f.hidden_field :commentable_id, value: @question.id %>
+    <%= f.submit :"Submit comment" %>
+  <% end %>
