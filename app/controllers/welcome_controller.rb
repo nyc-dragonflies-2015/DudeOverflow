@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    render :index
+    @questions = Question.all.order(created_at: :desc)
   end
 end
