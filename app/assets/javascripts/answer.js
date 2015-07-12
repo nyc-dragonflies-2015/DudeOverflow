@@ -1,3 +1,7 @@
 $(document).ready(function(){
-  alert("yooo");
+  $('#answer-form').on('submit', function(event){
+    event.preventDefault();
+    console.log('you made it')
+
+  })
 })
