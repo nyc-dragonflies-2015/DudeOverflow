@@ -7,7 +7,7 @@ $(document).ready(function(){
       data: $(this).serialize()
     })
     .done(function(response){
-      $('#question-comments-header').after(response);
+      $('.comments').prepend(response);
       $('#question-comment-form')[0].reset();
     })
     .fail(function(error){
