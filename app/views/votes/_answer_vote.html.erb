@@ -1,17 +1,23 @@
-<%= form_for :vote, url: '/votes/upvote', :html => {class: 'upvote', id: "upvote-id-" + answer.id.to_s} do |f|  %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :voteable_type, value: voteable_type %>
-  <%= f.hidden_field :voteable_id, value: voteable_id %>
-  <%= f.hidden_field :upvote, value: true %>
-  <%= f.submit 'Upvote' %>
-<% end %>
+<div class = "upvoter">
+  <%= form_for :vote, url: '/votes/upvote', :html => {class: 'upvote', id: "upvote-id-" + answer.id.to_s} do |f|  %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :voteable_type, value: voteable_type %>
+    <%= f.hidden_field :voteable_id, value: voteable_id %>
+    <%= f.hidden_field :upvote, value: true %>
+    <%= f.submit 'Upvote', class: 'btn btn-success upvote' %>
+  <% end %>
+</div>
 
-<h3><%= vote_count %></h3>
+<div class = "votecounter">
+  <p id='votecounterthing'><%= vote_count %></p>
+</div>
 
-<%= form_for :vote, url: '/votes/downvote', :html => {class: 'downvote', id: "downvote-id-" + answer.id.to_s} do |f|  %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :voteable_type, value: voteable_type %>
-  <%= f.hidden_field :voteable_id, value: voteable_id %>
-  <%= f.hidden_field :upvote, value: false %>
-  <%= f.submit 'Downvote' %>
-<% end %>
+<div class = "downvoter">
+  <%= form_for :vote, url: '/votes/downvote', :html => {class: 'downvote', id: "downvote-id-" + answer.id.to_s} do |f|  %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :voteable_type, value: voteable_type %>
+    <%= f.hidden_field :voteable_id, value: voteable_id %>
+    <%= f.hidden_field :upvote, value: false %>
+    <%= f.submit 'Downvote', class: 'btn btn-success downvote' %>
+  <% end %>
+</div>
