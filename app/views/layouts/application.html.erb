@@ -11,11 +11,8 @@
     <%= flash[:notice] %>
   <% end %>
   <%= render partial: "welcome/navbar" %>
-  <% if logged_in? %>
-    <!-- <p> Logged in as: <%= link_to current_user.username, current_user %> </p> -->
-  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
