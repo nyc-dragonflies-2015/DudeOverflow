@@ -18,7 +18,7 @@
           <% end %>
         </div>
         <div class="col-xs-8">
-          <div class = "jumbotron smaller-jumbotron">
+          <div class = "jumbotron">
             <p id= 'smaller-paragraph'> <%= @question.body %> </p>
           </div>
         </div>
@@ -42,23 +42,28 @@
     </div>
   </div>
   <div class = "row">
-    <div class= "col-xs-12" >
+    <div class = "col-xs-9">
+    </div>
+    <div class= "col-xs-3" >
       <% if logged_in? %>
         <%= render 'answers/form', answer: @answer %>
       <% end %>
     </div>
   </div>
+  <h2> Answers </h2>
     <% if @question.answers %>
       <% @question.answers.each do |a| %>
         <%= render 'answers/show', answer: a %>
         <div class = "row">
-          <div class = "col-xs-8">
+          <div class = "col-xs-1">
+          </div>
+          <div class = "comments col-xs-8">
             <% if a.comments %>
               <% a.comments.each do |c| %>
             <p><%= c.body %></p>
             <% end %>
           </div>
-          <div class = "col-xs-4">
+          <div class = "col-xs-3">
             <%= render 'comments/answer_comment', answer: a %>
           </div>
         </div>
