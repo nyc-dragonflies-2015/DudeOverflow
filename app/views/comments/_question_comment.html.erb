@@ -3,5 +3,5 @@
     <%= f.text_field :body %>
     <%= f.hidden_field :commentable_type, value: "Question" %>
     <%= f.hidden_field :commentable_id, value: @question.id %>
-    <%= f.submit :"Submit comment" %>
+    <%= f.submit :"Submit comment", class: 'btn' %>
   <% end %>
