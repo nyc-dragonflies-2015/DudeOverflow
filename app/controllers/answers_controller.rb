@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+  class AnswersController < ApplicationController
 
   def create
     question = Question.find_by(id: answer_params[:question_id])

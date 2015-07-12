@@ -25,7 +25,7 @@ Is this an OpenSSL threading problem in which multiple Sidekiq threads are attem
 
 Here's the stacktrace we're getting:",user_id: 1)
 
-Question.create(title: "How do I take a beer bong while I'm programming", body: "I have been trying so hard to keep my drinking schedule in line with this heavy workload, so for that reason I have had to sacrifice one for the other.  So dudes, my question is, how can I drink a whole beer through a funnel while I continue to program this project?")
+Question.create(title: "How do I take a beer bong while I'm programming", body: "I have been trying so hard to keep my drinking schedule in line with this heavy workload, so for that reason I have had to sacrifice one for the other.  So dudes, my question is, how can I drink a whole beer through a funnel while I continue to program this project?", user_id: 1)
 
 Question.create(title: "How to use column range chart with range and navigator in Highcharts?", body: "I have a requirement to plot run history of a task in Highcharts which should show tasks run as a horizontal bar. Recently I found out that inverted option is not supported in StockChart and navigator & rangeSelector is only available in StockChart.
 
@@ -41,7 +41,7 @@ Problem explanation of above plunker.
 
 If you check the screenshot below from above plunker, the time range is from 12/12/2014 09:32:26 to 12/12/2014 10:32:26 and there are only 2 tasks that has run m_ARRAYV_SALES_ZIG1_CALL2_VOD__C_OB & m_ZIG2_HCP_MERGE_IB_CN. However I can see another task in between LILLY_C which did not even ran in this date time range. (In actual data there are more than 10 tasks that clutters this chart which does not even fall under this date time range)
 
-Also if you notice at the bottom most right corner time shifted from 09:38 to 19:20. 19:20 is the end time for m_ZIG2_HCP_MERGE_IB_CN task. ")
+Also if you notice at the bottom most right corner time shifted from 09:38 to 19:20. 19:20 is the end time for m_ZIG2_HCP_MERGE_IB_CN task. ", user_id: 2)
 
 User.create(username: "Mike",password: "123")
 User.create(username: "john", password: "123")
