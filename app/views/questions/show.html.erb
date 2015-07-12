@@ -41,22 +41,30 @@
     <% end %>
     </div>
   </div>
-
-
-  <% if logged_in? %>
-    <%= render 'answers/form', answer: @answer %>
-  <% end %>
-
-  <% if @question.answers %>
-    <% @question.answers.each do |a| %>
-      <%= render 'answers/show', answer: a %>
-      <% if a.comments %>
-        <% a.comments.each do |c| %>
-          <%= c.body %><br>
+  <div class = "row">
+    <div class= "col-xs-12" >
+      <% if logged_in? %>
+        <%= render 'answers/form', answer: @answer %>
+      <% end %>
+    </div>
+  </div>
+    <% if @question.answers %>
+      <% @question.answers.each do |a| %>
+        <%= render 'answers/show', answer: a %>
+        <div class = "row">
+          <div class = "col-xs-8">
+            <% if a.comments %>
+              <% a.comments.each do |c| %>
+            <p><%= c.body %></p>
+            <% end %>
+          </div>
+          <div class = "col-xs-4">
+            <%= render 'comments/answer_comment', answer: a %>
+          </div>
+        </div>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
 </div>
 
 
