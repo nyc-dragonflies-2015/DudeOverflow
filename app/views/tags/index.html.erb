@@ -1,9 +1,8 @@
 <% @tags.each do |tag| %>
   <div class="tag-name">
     <%= tag.name %>
-  </div>
-
-  <div id="tag-<%= tag.id %>">
-    <%= tag.description %>
+    <div id="tag-<%= tag.id %>" style="display: none;">
+      <%= tag.description %>
+    </div>
   </div>
 <% end %>
