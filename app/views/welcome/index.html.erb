@@ -1,34 +1,28 @@
 <html>
   <body>
-    <div id="main-container" class="container-fluid">
-      <div class="row">
-        <div id="sidebar" class="col-xs-6">
-          <p id= "logo"> Dude Overflow</p>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Dude Overflow</a>
         </div>
-        <div id="blanktopbar" class= "col-xs-3">
+        <div>
+          <ul class="nav navbar-nav">
+            <li><%=link_to 'Ask question', new_question_path %></li>
+            <li><%= link_to 'Profile', current_user %></li>
+            <% if session[:id] %>
+              <li> <%= link_to 'Logout', logout_path, method: 'delete' %> </li>
+              <% else %>
+              <li> <%= link_to 'Sign Up', new_user_path %>
+              <li> <%= link_to 'Login', login_path %>'
+            <% end %>
+          </ul>
         </div>
-        <% if logged_in? %>
-          <div id="ask_question" class="col-xs-1">
-            <p> <%= link_to 'Ask Question', new_question_path %></p>
-          </div>
-          <div id="profile" class="col-xs-1">
-            <p> <%= link_to 'Profile', current_user %></p>
-          </div>
-          <div id="logout" class="col-xs-1">
-            <p> <%= link_to 'Logout', logout_path, method: 'delete' %></p>
-          </div>
-        <% else %>
-          <div id="signup" class="col-xs-1">
-            <p> <%= link_to 'Sign Up', new_user_path %> </p>
-          </div>
-          <div id="login" class="col-xs-1">
-            <p> <%= link_to 'Login', login_path %> </p>
-          </div>
-        <% end %>
       </div>
+    </nav>
+    <div id="main-container" class="container-fluid">
       <% @questions.each do |question| %>
         <div id="articlebar" class="row">
-          <div id="votes-holder" class="col-xs-1">
+          <div id="votes-holder" class="col-xs-1 holder" >
             <div class="row">
               <div id="votecountlabel" class= "col-xs-1">
                 <p> <%= question.vote_count %> </p>
@@ -40,7 +34,7 @@
               </div>
             </div>
           </div>
-          <div id="answers-holder" class="col-xs-1">
+          <div id="answers-holder" class="col-xs-1 holder">
             <div class="row">
               <div id="answercountlabel" class= "col-xs-1">
                 <p> <%= question.answers.count %> </p>
@@ -52,7 +46,7 @@
               </div>
             </div>
           </div>
-          <div id="views-holder" class="col-xs-1">
+          <div id="views-holder" class="col-xs-1 holder">
             <div class="row">
               <div id="viewscountlabel" class= "col-xs-1">
                 <p> <%= question.view_count %> </p>
@@ -64,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div id="question-holder" class="col-xs-9">
+          <div id="question-holder" class="col-xs-9 holder">
             <div class="row">
               <div id="question-title" class= "col-xs-12">
                 <p> <%= link_to question.title, question %></p>
@@ -79,7 +73,6 @@
                 <p> author </p>
               </div>
             </div>
-          </div>
           </div>
         </div>
       <% end %>

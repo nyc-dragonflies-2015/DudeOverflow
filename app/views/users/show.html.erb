@@ -1,3 +1,12 @@
-<h2>Profile for: <%= @user.username %></h2>
-<p>has asked <%= @user.questions.count %> questions </p>
-<p>has answered <%= @user.answers.count %> questions </p>
+<div id="main-container" class="container-fluid">
+  <div id="profile-header" class = "row">
+    <h2>Welcome Dude! <%= @user.username %></h2>
+  </div>
+  <div id="profile-info" class="row">
+    <p>You have asked <%= @user.questions.count %> questions </p>
+    <p>You have answered <%= @user.answers.count %> questions </p>
+  </div>
+  <div id="profile-votes"></div>
+  <div id="status answered"></div>
+  <div id="views"></div>
+</div>
