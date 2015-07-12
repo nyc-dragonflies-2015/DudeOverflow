@@ -7,7 +7,7 @@ $(document).ready(function(){
       data: $(this).serialize()
     })
     .done(function(response){
-      $('.comments').prepend(response);
+      $('.question-comments').prepend(response);
       $('#question-comment-form')[0].reset();
     })
     .fail(function(error){
@@ -17,17 +17,16 @@ $(document).ready(function(){
 
   $('.answer-comment-form').on('submit', function(event){
     event.preventDefault();
-    console.log("yo");
     var commentFormId = "#" + $(this).attr("id");
-    console.log(commentFormId);
+    var x = (commentFormId + "-comment");
+    var $target = $(this)
     $.ajax({
       url: $(this).attr('action'),
       method: 'POST',
       data: $(this).serialize()
     })
     .done(function(response){
-      console.log(response);
-      $(commentFormId).after(response + "<br/>");
+      $('.answer-comment-form').parent().parent().children(x).prepend(response)
       $(commentFormId)[0].reset();
     })
     .fail(function(error){
