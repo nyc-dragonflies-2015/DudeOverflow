@@ -22,19 +22,22 @@
         </div>
       </div>
     </div>
-  <div class = "comment-form-thing">
-  <% if logged_in? %>
-    <%= render 'comments/question_comment', question: @question %>
-  <% end %>
-  </div>
-
-  <h2 id="question-comments-header">Question Comments</h2>
-
-  <% if @question.comments %>
-    <% @question.comments.each do |c| %>
-      <%= c.body %><br/>
+  <div class="row">
+    <div class= "col-xs-1">
+    </div>
+    <div class = "comments col-xs-8">
+    <% if @question.comments %>
+      <% @question.comments.each do |c| %>
+         <p> <%= c.body %> :<%= c.user.username %> </p>
+      <% end %>
     <% end %>
-  <% end %>
+    </div>
+    <div class = "comment-form-thing col-xs-3">
+    <% if logged_in? %>
+      <%= render 'comments/question_comment', question: @question %>
+    <% end %>
+    </div>
+  </div>
 
   <% if logged_in? %>
     <%= render 'answers/form', answer: @answer %>
@@ -51,3 +54,11 @@
     <% end %>
   <% end %>
 </div>
+
+
+<!-- <p> Up Button: <span class="glyphicon glyphicon-chevron-up"></span> </p>
+
+
+<button type="button" class="btn">
+  <span class="glyphicon glyphicon-plus"></span> UP>
+</button> -->
