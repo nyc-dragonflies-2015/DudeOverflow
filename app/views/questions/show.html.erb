@@ -30,7 +30,7 @@
     <div class = "comments question-comments col-xs-8">
     <% if @question.comments %>
       <% @question.comments.each do |c| %>
-         <p> <%= c.body %> :<%= c.user.username %> </p>
+         <p> <%= c.body %> - <%= c.user.username %> <%= time_ago_in_words(c.created_at) %></p>
       <% end %>
     <% end %>
     </div>
