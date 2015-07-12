@@ -1,4 +1,4 @@
-<%= form_for @answer do |f| %>
+<%= form_for @answer,:html => {id: 'answer-form'} do |f| %>
   <%= f.label :body, 'Answer' %>
   <%= f.text_field :body %>
   <%= f.hidden_field :user_id, value: current_user.id %>

@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('#question-comment-form').on('submit', function(event){
   event.preventDefault();
     $.ajax({
-      url: 'http://localhost:3000/comments',
+      url: $(this).attr('action'),
       method: 'POST',
       data: $(this).serialize()
     })
