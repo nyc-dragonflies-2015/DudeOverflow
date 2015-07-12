@@ -1,7 +1,11 @@
 $(document).ready(function(){
-  $('.tag-name').on('click', function(){
-    var currentTag = $(this).attr("id");
-    console.log(currentTag)
-    $(currentTag).hide();
+  $('.tag-name').hover(function(e) {
+    var currentTag = '#' + $(this)[0].children[0].id;
+    $(currentTag).show();
+  }, function() {
+    var currentTag = '#' + $(this)[0].children[0].id;
+    if (!($(".tag-name").hasClass("show"))) {
+        $(currentTag).hide();
+    }
   })
 })
