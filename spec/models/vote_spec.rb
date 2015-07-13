@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe Vote do
   let(:db_vote_array) { [] }
-  let(:vote) { Vote.create(count: 1)}
-  let(:valid_count) {Vote.new(count: 1)}
-  let(:invalid_count) {Vote.new(count: nil)}
+  let(:vote) { Vote.create(upvote: true)}
+  let(:valid_count) {Vote.new(upvote: false)}
+  let(:invalid_count) {Vote.new(upvote: true)}
 
   it "should be a valid vote if count is present" do
     expect(valid_count).to be_valid
