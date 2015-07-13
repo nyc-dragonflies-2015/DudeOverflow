@@ -30,24 +30,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def delete
-    @question = Question.find(params[:id])
-    @question.destroy
-    redirect_to root_url
-  end
-
-  def edit
-    @question = Question.find(params[:id])
-  end
-
-  def update
-    if @question.update_attributes(question_params)
-      redirect_to @question
-    else
-      render :edit
-    end
-  end
-
   private
 
   def question_params
