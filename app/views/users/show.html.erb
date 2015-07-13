@@ -1,11 +1,11 @@
-<%= render partial: "welcome/navbar" %>
 <div id="main-container" class="container-fluid">
   <div id="profile-header" class = "row">
-    <h2>Welcome Dude! <%= @user.username %></h2>
+    <h2>Welcome <%= @user.username %>!</h2>
   </div>
   <div id="profile-info" class="row">
     <p>You have asked <%= @user.questions.count %> questions </p>
     <p>You have answered <%= @user.answers.count %> questions </p>
+    <p><%= link_to 'Ask', new_question_path %> a new question</p>
   </div>
   <div id="profile-votes"></div>
   <div id="status answered"></div>
