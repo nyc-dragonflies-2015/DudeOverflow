@@ -51,7 +51,7 @@
               </div>
               <div id="authorlabel" class= "col-xs-6">
                 <p> <%= link_to question.user.username, question.user %> </p>
-                <p> author </p>
+                <%= time_ago_in_words(question.created_at) %>
               </div>
             </div>
           </div>
