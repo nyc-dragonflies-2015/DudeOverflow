@@ -6,6 +6,9 @@ Stack overflow clone, overflowing with dudes...
 [Dude Overflow Trello](https://trello.com/b/Zyaoi14f/staroverflow)
 
 
+## Schema
+![Schema](/app/assets/images/dudes.png)
+
 ## Team
 ### Alex Satterly
 ### John Lyden
