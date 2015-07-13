@@ -31,11 +31,6 @@ describe QuestionsController do
     it "should reach form page" do
       expect(response).to have_http_status(200)
     end
-
-    it "should show a 'Create question' form" do
-      get :new
-      expect(response).to render_template('new')
-    end
   end
 
   describe "POST create" do
