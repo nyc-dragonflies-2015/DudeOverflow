@@ -8,7 +8,11 @@
     else
       flash[:alert] = "#{@answer.errors.full_messages.join("--")}"
     end
-    redirect_to question
+    if request.xhr?
+      render :create, layout: false
+    else
+      redirect_to question
+    end
   end
 
   def show

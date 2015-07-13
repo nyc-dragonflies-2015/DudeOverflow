@@ -50,23 +50,25 @@
     </div>
   </div>
   <h2> Answers </h2>
-    <% if @question.answers %>
-      <% @question.answers.each do |a| %>
-        <%= render 'answers/show', answer: a %>
-        <div class = "row">
-          <div class = "col-xs-1">
-          </div>
-          <div class = "comments col-xs-8" id="comment-id-<%=a.id%>-comment">
-            <% if a.comments %>
-              <% a.comments.each do |c| %>
-            <p><%= c.body %></p>
-            <% end %>
-          </div>
-          <div class = "col-xs-3">
-            <%= render 'comments/answer_comment', answer: a %>
-          </div>
-        </div>
+    <div id="answers">
+      <% if @question.answers %>
+        <% @question.answers.each do |a| %>
+          <%= render 'answers/show', answer: a %>
+            <div class = "row">
+              <div class = "col-xs-1">
+              </div>
+              <div class = "comments col-xs-8" id="comment-id-<%=a.id%>-comment">
+                <% if a.comments %>
+                  <% a.comments.each do |c| %>
+                <p><%= c.body %></p>
+                <% end %>
+              </div>
+              <div class = "col-xs-3">
+                <%= render 'comments/answer_comment', answer: a %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
 </div>
