@@ -3,13 +3,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def commentable
-    comment_params[:commentable_type] == "Question" ? Question : Answer
-  end
-
   def create
-    @comment = commentable.find(comment_params[:commentable_id]).comments.build(comment_params.merge(user_id: current_user.id))
-    @comment.save
+    @comment = commentable.comments.build(comment_params)
+    @comment.save!
     if request.xhr?
       render :create, layout: false
     else
@@ -18,7 +14,16 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def commentable
+    commentable_class.find(comment_params[:commentable_id])
+  end
+
+  def commentable_class
+    comment_params[:commentable_type] == "Question" ? Question : Answer
+  end
+
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:body, :user_id, :commentable_id, :commentable_type).merge(user_id: current_user.id)
   end
 end
