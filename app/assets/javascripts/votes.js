@@ -1,3 +1,4 @@
+// Delete it if you're not using it.
 $(document).ready(function() {
   // $(".upvote").on('submit', function(event) {
   //   event.preventDefault();

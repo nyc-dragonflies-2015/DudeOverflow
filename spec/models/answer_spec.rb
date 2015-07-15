@@ -2,6 +2,20 @@ require 'rails_helper'
 
 describe Answer do
   let(:db_answer_array) { [] }
+
+  # Mike: this is a place where you could totally use factories so well
+  #
+  # answer {
+  #   valid_body {
+  #     body "TEST"
+  #   }
+  #   invalid_body {
+  #     body nil
+  #   }
+  # }
+  #
+  # I know i had some struggle demonstrating these, but this could totally be
+  # so handy for you guys here
   let(:answer) { Answer.create(body: "TEST")}
   let(:valid_body) {Answer.new(body: "TEST")}
   let(:invalid_body) {Answer.new(body: nil)}

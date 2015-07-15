@@ -6,6 +6,7 @@ class VotesController < ApplicationController
 
   def upvote
     @existing_vote = vote_for_curr_user
+    # This is not satisfactory.  An empty elsif clause?
     if @existing_vote && !@existing_vote.upvote
       # @existing_vote.update_attributes(upvote: true)
       # if request.xhr?

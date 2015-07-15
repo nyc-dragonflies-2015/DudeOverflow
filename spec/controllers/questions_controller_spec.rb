@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController do
+  # You should probably prefer a FactoryGirl option
   let(:q) {Question.create(title: "RSPEC", body: "TEST")}
 
   describe "GET index" do
@@ -28,11 +29,14 @@ describe QuestionsController do
   end
 
   describe "GET new" do
+    let(:user) { User.create password: "temp", username: "temp" }
     it "should reach form page" do
+      # to be_ok is a shorter way of asking the same thing
       expect(response).to have_http_status(200)
     end
 
-    xit "should show a 'Create question' form" do
+    it "should show a 'Create question' form" do
+      session[:user_id] = user.id
       get :new
       expect(response).to render_template('new')
     end
@@ -40,6 +44,7 @@ describe QuestionsController do
 
   describe "POST create" do
     it "should create a new Question" do
+      # Included for artistic effect :)
       q
       get :new
       expect(Question.count).to eq(1)
