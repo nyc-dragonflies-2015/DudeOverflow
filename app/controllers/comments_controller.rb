@@ -3,29 +3,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def commentable
+    comment_params[:commentable_type] == "Question" ? Question : Answer
+  end
+
   def create
-    @comment = Comment.new(comment_params)
-    @comment.update_attributes(user_id: current_user.id)
-    if @comment.commentable_type == "Question"
-      @question = Question.find(@comment.commentable_id)
-      @comment.commentable_id = @question.id
-    elsif @comment.commentable_type == "Answer"
-      @answer = Answer.find(@comment.commentable_id)
-      @comment.commentable_id = @answer.id
-    end
+    @comment = commentable.find(comment_params[:commentable_id]).comments.build(comment_params.merge(user_id: current_user.id))
     @comment.save
-    if @comment.commentable_type == "Question"
-      if request.xhr?
-        render :create, layout: false
-      else
-        redirect_to question_path(@question.id)
-      end
+    if request.xhr?
+      render :create, layout: false
     else
-      if request.xhr?
-        render :create, layout: false
-      else
-        redirect_to question_path(@answer.question.id)
-      end
+      redirect_to @comment.commentable
     end
   end
 
