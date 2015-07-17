@@ -2,6 +2,10 @@ require 'rails_helper'
 
 describe Comment do
   let(:db_comment_array) { [] }
+
+  # The subclassing of factories would be a huge help here.
+  # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#inheritance
+  #
   let(:comment) {Comment.create(body: "Testing")}
   let(:valid_comment_body) {Comment.new(body: "Rspec Test")}
   let(:invalid_comment_body) {Comment.new(body: nil)}
